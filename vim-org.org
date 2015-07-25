@@ -1,0 +1,36 @@
+* Syntax commands for vim
+
+  This section describes all the syntax commands included
+  by vim-org.
+
+** Headlines
+
+   Headlines are probably the most basic unit in org-mode; they always start
+   with a * (asterisk) and cannot have any leading whitespace; that is, they
+   always start at the very left. (The org-manual [[http://orgmode.org/org.html#Headlines][on headlines]] calls this "the left margin".)
+
+   Note that there is no actual limit to the nesting of headlines; the org
+   syntax allows the user to use as many levels as he wants.
+
+*** TODO Determine how many levels should be highlighted
+
+    We do need to discuss how many levels we want to highlight;
+    emacs org-mode supports circular highlightings and I like that.
+
+    For instance, "************" should still be highlighted as this
+    seems to be quite reachable.
+
+*** STARTED Syntax for headlines
+
+    The code could look like this:
+
+    #+BEGIN_SRC vim :tangle syntax/org.vim
+        function! s:generateHeadlineSyntax(level)
+            execute 'syntax match org_headline'.a:level.' @^*@
+        endfunction
+    #+END_SRC
+
+    To make this work, org_headlineNO must be linked to a group that
+    exists when the ~:hi~ command is used. (That is, the 2nd parameter
+    to the :syntax command takes a highlight group)
+
