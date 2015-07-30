@@ -1,3 +1,26 @@
+* Development
+** File structure
+
+  For the sake of maintainability, we adopted a model-view-controller (MVC)
+  pattern. Thus, vim-org is composed of three packages, each containing the
+  files related to the model, the view and the controller, respectively.
+  #+BEGIN_EXAMPLE
+      vimorg
+       ├── __init__.py
+       ├── model
+       │   ├── __init__.py
+       │   ├── Checkbox.py
+       │   ├── Heading.py
+       │   └── ...
+       ├── view
+       │   ├── __init__.py
+       │   └── ...
+       └── controller
+           ├── __init__.py
+           └── ...
+  #+END_EXAMPLE
+
+
 * Syntax commands for vim
 
   This section describes all the syntax commands included
