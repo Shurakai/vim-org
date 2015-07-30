@@ -57,3 +57,18 @@
     exists when the ~:hi~ command is used. (That is, the 2nd parameter
     to the :syntax command takes a highlight group)
 
+*** Keyword sets
+    In most cases, org-mode manage to keep track of the keyword set used for a given
+    headline (ie. when we cycle through a set of keyword until the blank
+    keyword, org-mode knows which set to use if we want to cycle from this
+    blank keyword again). However, this appears to be rather difficult to implement in
+    vim because it would probably require to analyse the file after every
+    single modification.
+
+    Nevertheless, cycling through a whole set of keywords more than once is seldom used
+    since we usually go from an "undone" state to a "done" state and then
+    stop cycling.
+
+    For this reason, we have decided not to implement this specific
+    functionnality, ie. cycling from a blank keyword will use the first
+    declared keyword set.
